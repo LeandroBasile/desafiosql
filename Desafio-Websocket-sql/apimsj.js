@@ -15,7 +15,7 @@ class MsjClass {
       await this.config(`${this.table}`).insert(message);
       console.log(message)
     } catch (error) {
-      if (error.code == "ER_NO_SUCH_TABLE") {
+      if(error.code == "SQLITE_ERROR") {
         createMsjTable();
       } else {
         console.log(
